@@ -1,0 +1,4 @@
+https://regex101.com/r/iJE1UE/1  ------> find email domain 
+https://regex101.com/r/iJE1UE/2  ------> find email name
+https://regex101.com/r/iJE1UE/3  ------> find phone number
+https://regex101.com/r/iJE1UE/4  ------> validate phone number
