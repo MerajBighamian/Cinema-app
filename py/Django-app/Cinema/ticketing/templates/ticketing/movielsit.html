@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>فیلم  ها</title>
+    <link rel="stylesheet" type="text/css" href="/static/ticketing/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/static/ticketing/css/bootstrap-grid.css">
+</head>
+<body>
+    <h1>لیست فیلم ها</h1>
+    <a href="{% url 'ticketing_app:cinema_list' %}">لیست سینما ها</a>
+        {% if movie_list %}
+            <p style="color: green">
+                تعداد
+                {{ movie_count }}
+                فیلم موجود است
+            </p>
+            <ul>
+                {% for movie in  movie_list %}
+                    <li>{{ movie }}</li>
+                {% endfor %}
+
+            </ul>
+        {% else %}
+            <p style="color: #ff0000;">
+            فیلم ها موجود نیست
+            </p>
+        {% endif %}
+
+</body>
+</html>
