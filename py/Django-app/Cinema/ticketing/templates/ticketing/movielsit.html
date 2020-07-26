@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>فیلم  ها</title>
-    <link rel="stylesheet" type="text/css" href="/static/ticketing/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="/static/ticketing/css/bootstrap-grid.css">
+    <link rel="stylesheet" type="text/css" href="/static/ticketing/css/bootstrap.rtl.css">
+    <link rel="stylesheet" type="text/css" href="/static/ticketing/css/bootstrap-grid.rtl.css">
 </head>
-<body>
+<body style="direction: rtl;!important">
     <h1>لیست فیلم ها</h1>
     <a href="{% url 'ticketing_app:cinema_list' %}">لیست سینما ها</a>
         {% if movie_list %}
@@ -27,5 +27,8 @@
             </p>
         {% endif %}
 
+
+
+    <script src="/static/ticketing/js/bootstrap.js"></script>
 </body>
 </html>

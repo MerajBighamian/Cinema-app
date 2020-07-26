@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>لیست سینما ها</title>
-    <link rel="stylesheet" type="text/css" href="/static/ticketing/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="/static/ticketing/css/bootstrap-grid.css">
+    <link rel="stylesheet" type="text/css" href="/static/ticketing/css/bootstrap.rtl.css">
+    <link rel="stylesheet" type="text/css" href="/static/ticketing/css/bootstrap-grid.rtl.css">
 </head>
-<body>
+<body style="direction: rtl">
     <a href="{% url 'ticketing_app:movie_list' %}">لیست فیلم ها</a>
     {% if cinema_list %}
         <p style="color: green">تعداد {{ cinema_count }} سینما موجود است.</p>
@@ -18,5 +18,10 @@
     {% else%}
         <p style="color: red">سینمایی وجود ندارد</p>
     {% endif %}
+
+
+
+
+    <script src="/static/ticketing/js/bootstrap.js"></script>
 </body>
 </html>
