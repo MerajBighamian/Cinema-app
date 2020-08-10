@@ -1,27 +1,67 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <title>لیست سینما ها</title>
-    <link rel="stylesheet" type="text/css" href="/static/ticketing/css/bootstrap.rtl.css">
-    <link rel="stylesheet" type="text/css" href="/static/ticketing/css/bootstrap-grid.rtl.css">
+    <link rel="stylesheet" type="text/css" href="{% static "ticketing/css/bootstrap.rtl.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "ticketing/css/bootstrap-grid.rtl.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "ticketing/css/fontawesome.css" %}">
+     <link rel="stylesheet" type="text/css" href="{% static "ticketing/css/all.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "ticketing/css/main.css" %}">
 </head>
-<body style="direction: rtl">
-    <a href="{% url 'ticketing_app:movie_list' %}">لیست فیلم ها</a>
-    {% if cinema_list %}
-        <p style="color: green">تعداد {{ cinema_count }} سینما موجود است.</p>
-        <ul>
-            {% for cinema in cinema_list %}
-                <li>{{ cinema }}</li>
-            {% endfor %}
-        </ul>
-    {% else%}
-        <p style="color: red">سینمایی وجود ندارد</p>
-    {% endif %}
+<body dir="rtl">
+    <div class="container" id="countainer">
+        <div class="row align-items-center" id="header">
+            <div class="col text-center">
+                <h2>سامانه فروش بلیط سینما</h2>
+            </div>
+        </div>
+        <div class="row align-items-center" id="toolbar">
+            <div class="col-6 ">
+                <h4>فهرست سینما ها</h4>
+            </div>
+            <div class="col-6 text-left">
+                <a class="button-fix btn btn-light py-1 px-2" href="{% url 'ticketing_app:movie_list' %}">
+                   <i class="fa fa-film" aria-hidden="true"></i>
+                    فیلم ها
+                </a>
+                <a class="button-fix btn btn-light py-1 px-2" href="{% url 'ticketing_app:cinema_list' %}">
+                   <i class="fa fa-building" aria-hidden="true"></i>
+                    سینما ها
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col py-3">
+                {% if cinema_list %}
+                    <p class=" alert-fix alert alert-success ">تعداد {{ cinema_count }} سینما موجود است.</p>
+                    <ul class="list-group" id="list-show">
+                        {% for cinema in cinema_list %}
+                            <a href="{% url "ticketing_app:cinema_details" cinema_id=cinema.pk %}">
+                                <li class="list-group-item list-group-item-action list-group-item-dark" >
+                                     <i class="fa fa-building" aria-hidden="true"></i>
+                                    {{ cinema }}
+                                    <small class="text-muted">({{ cinema.city }})</small>
+                                </li>
+                            </a>
+                        {% endfor %}
+                    </ul>
+                {% else%}
+                     <p class="alert alert-danger">سینمایی وجود ندارد</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
 
 
 
 
-    <script src="/static/ticketing/js/bootstrap.js"></script>
+
+
+    <script src="{% static "ticketing/js/jquery-3.5.1.min.js" %}"></script>
+    <script src="{% static "ticketing/js/bootstrap.js" %}"></script>
+    <script src="{% static "ticketing/js/fontawesome.js" %}"></script>
+    <script src="{% static "ticketing/js/main.js" %}"></script>
 </body>
 </html>
