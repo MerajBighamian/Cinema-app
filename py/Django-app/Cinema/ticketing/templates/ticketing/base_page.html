@@ -31,7 +31,14 @@
             </div>
             <div class="col-6 text-left">
                {% block toolbar_button %}
-
+                    <a class="button-fix btn btn-light py-1 px-2" href="{% url 'ticketing_app:movie_list' %}">
+                          <i class="fa fa-film" aria-hidden="true"></i>
+                             فیلم ها
+                    </a>
+                    <a class="button-fix btn btn-light py-1 px-2" href="{% url 'ticketing_app:cinema_list' %}">
+                          <i class="fa fa-building" aria-hidden="true"></i>
+                          سینما ها
+                    </a>
                {% endblock %}
             </div>
         </div>

@@ -1,49 +1,20 @@
-{% load static %}
-<!DOCTYPE html>
-<htm>
-<head>
-    <meta charset="UTF-8">
-    <title>{{ movie.name }}</title>
-    <style>
-        @font-face {
-                font-family: 'IRANSans';
-                src: url("../../static/ticketing/fonts/iransans/woff/IRANSansWeb.woff") format('woff');
-        }
-        body{
+{% extends 'ticketing/base_page.html' %}
+   {% block title %}
+        {{ cinema.name }}
+   {% endblock %}
 
-            font-family: 'IRANSans';
-        }
+    {% block toolbar_title %}
+        {{ cinema.name }}
+    {% endblock %}
 
-    </style>
-</head>
-<body>
-<meta charset="UTF-8">
-<title>{{ cinema.name }}</title>
-<link rel="stylesheet" type="text/css" href="{% static "ticketing/css/bootstrap.rtl.css" %}">
-<link rel="stylesheet" type="text/css" href="{% static "ticketing/css/bootstrap-grid.rtl.css" %}">
-<link rel="stylesheet" type="text/css" href="{% static "ticketing/css/fontawesome.css" %}">
-<link rel="stylesheet" type="text/css" href="{% static "ticketing/css/all.css" %}">
-<link rel="stylesheet" type="text/css" href="{% static "ticketing/css/main.css" %}">
-</head>
-<body dir="rtl" style="font-family: 'IRANSans'">
-    <div class="container" id="container">
-         <div class="row align-items-center" id="header">
-            <div class="col text-center">
-                <h2>سامانه فروش بلیط سینما</h2>
-            </div>
-        </div>
-
-        <div class="row align-items-center" id="toolbar">
-            <div class="col-6 ">
-                <h4>{{ cinema.name }}</h4>
-            </div>
-                </a>
-                <a class="button-fix btn btn-light py-1 px-2" href="{% url 'ticketing_app:movie_list' %}">
+    {% block toolbar_button %}
+        <a class="button-fix btn btn-light py-1 px-2" href="{% url 'ticketing_app:movie_list' %}">
                    <i class="fa fa-building" aria-hidden="true"></i>
                     فیلم ها
-                </a>
-            </div>
+        </a>
+    {% endblock %}
 
+    {% block main_content %}
         <div class="row">
             <div class="col py-3">
                 <p>شهر :
@@ -58,7 +29,4 @@
                 {% endif %}
             </div>
         </div>
-    </div>
-
-</body>
-</html>
+    {% endblock %}
