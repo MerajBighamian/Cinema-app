@@ -72,9 +72,16 @@ class ShowTime(models.Model):
         (SHOW_CANSELED, "سانس لغو شد"),
     )
     # status for showtime of film
-    status = models.IntegerField(choices=status_choice)
+    status = models.IntegerField("وضعیت", choices=status_choice)
 
     def __str__(self):
         return '{} - {} - {}'.format(self.movie, self.cinema, self.start_time)
 
-    # this is a query of show time model -------->      ShowTimw.objects.filter(movie__name__gt=1380,cinema__city="Tehran").exclude(price__lt=1000)
+    def get_price_display(self):
+        return "{} تومان".format(self.price)
+
+    def get_status_display(self):
+        return self.status_choice[self.status-1][1]
+
+    # this is a query of show time model -------->      ShowTimw.objects.filter(movie__year__gt=1380,
+    # cinema__city="Tehran").exclude(price__lt=1000)

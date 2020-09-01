@@ -2,7 +2,7 @@ from cgitb import html
 from html.entities import html5
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
-from ticketing.models import Movie, Cinema
+from ticketing.models import Movie, Cinema, ShowTime
 
 
 # view of url movie/list with name movie_list
@@ -50,6 +50,13 @@ def cinema_details(request, cinema_id):
     }
     return render(request, 'ticketing/cinema_details.html', context)
 
+
+def showtime_list(request):
+    showtime = ShowTime.objects.all()
+    context = {
+        "showtimes": showtime
+    }
+    return render(request, "ticketing/showtime_list.html", context)
     # response_text = """
     # <!DOCTYPE html>
     # <html lang="en">
